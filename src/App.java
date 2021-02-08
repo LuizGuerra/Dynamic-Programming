@@ -1,7 +1,10 @@
+import java.util.Arrays;
+
 public class App {
     public static void main (String args[]) {
         // fibonacci();
-        gridTraveler();
+        // gridTraveler();
+        canSum();
     }
 
     private static void fibonacci() {
@@ -29,4 +32,20 @@ public class App {
         System.out.println(gt.dinamicTravel(18, 18));
     }
 
+    private static void canSum() {
+        Sum s = new Sum();
+        System.out.println("Naive can sum:");
+        System.out.println(s.naiveCanSum(7, Arrays.asList(2, 3)));
+        System.out.println(s.naiveCanSum(7, Arrays.asList(5,3,4,7)));
+        System.out.println(s.naiveCanSum(7, Arrays.asList(2,4)));
+        System.out.println(s.naiveCanSum(8, Arrays.asList(2,3,5)));
+        // System.out.println(s.naiveCanSum(300, Arrays.asList(7,14)));
+        
+        System.out.println("\nNaive can sum:");
+        System.out.println(s.dynamicCanSum(7, Arrays.asList(2, 3)));
+        System.out.println(s.dynamicCanSum(7, Arrays.asList(5,3,4,7)));
+        System.out.println(s.dynamicCanSum(7, Arrays.asList(2,4)));
+        System.out.println(s.dynamicCanSum(8, Arrays.asList(2,3,5)));
+        System.out.println(s.dynamicCanSum(300, Arrays.asList(7,14)));
+    }
 }
