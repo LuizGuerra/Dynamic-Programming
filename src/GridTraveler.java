@@ -16,18 +16,18 @@ public class GridTraveler {
         return naiveTravel(m-1, n) + naiveTravel(m, n-1);
     }
 
-    public int dinamicTravel(int m, int n) {
+    public Long dinamicTravel(int m, int n) {
         return dinamicTravel(m, n, new HashMap<>());
     }
     
-    private int dinamicTravel(int m, int n, HashMap<String, Integer> memo) {
-        if (m == 0 || n == 0) { return 0; }
-        if (m == 1 && n == 1) { return 1; }
+    private Long dinamicTravel(int m, int n, HashMap<String, Long> memo) {
+        if (m == 0 || n == 0) { return Long.valueOf(0); }
+        if (m == 1 && n == 1) { return Long.valueOf(1); }
         String key = m > n ? n+"-"+m : m+"-"+n;
         if (memo.containsKey(key)) {
             return memo.get(key);
         }
-        int value = dinamicTravel(m-1, n, memo) + dinamicTravel(m, n-1, memo);
+        Long value = dinamicTravel(m-1, n, memo) + dinamicTravel(m, n-1, memo);
         memo.put(key, value);
         return value;
     }

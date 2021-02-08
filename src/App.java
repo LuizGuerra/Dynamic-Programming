@@ -26,7 +26,7 @@ public class App {
         System.out.println(gt.dinamicTravel(2, 2));
         System.out.println(gt.dinamicTravel(2, 3));
         System.out.println(gt.dinamicTravel(3, 3));
-        System.out.println(gt.dinamicTravel(16, 16));
+        System.out.println(gt.dinamicTravel(18, 18));
     }
 
 }
