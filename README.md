@@ -1,5 +1,9 @@
 # Dynamic Programming
 
-This is the implementations of the problems and solutions from the following video in Java (the video uses JavaScript)
+This is the dynamic implementations of commong software intensive problems.
 
-[![Video link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/readme/dynamic-programming.jpg)](https://youtu.be/oBt53YbR9Kk)
+Problem name | URL
+
+Fibonacci | https://github.com/LuizGuerra/Dynamic-Programming/blob/main/src/Fibonacci.java
+GridTraveler | https://github.com/LuizGuerra/Dynamic-Programming/blob/main/src/GridTraveler.java
+
