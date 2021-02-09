@@ -70,4 +70,44 @@ public class Sum {
         return null;
     }
 
+    public List<Integer> naiveBestSum(int targetSum, List<Integer> numbers) {
+        if (targetSum < 0) { return null; }
+        if (targetSum == 0) { return new ArrayList<>(); }
+        List<Integer> shortest = null;
+        for (Integer value : numbers)  {
+            List<Integer> combination = naiveBestSum(targetSum - value, numbers);
+            if (combination != null) {
+                combination.add(0, value);
+                if (shortest == null || shortest.size() > combination.size()) {
+                    shortest = combination;
+                }
+            }
+        }
+        return shortest;
+    }
+
+    public List<Integer> dynamicBestSum(int targetSum, List<Integer> numbers) {
+        return dynamicBestSum(targetSum, numbers, new HashMap<>());
+    }
+    // 8 - 1 4 5
+    private List<Integer> dynamicBestSum(int targetSum, List<Integer> numbers, HashMap<Integer, List<Integer>> memo) {
+        if (memo.containsKey(targetSum)) { return memo.get(targetSum); }
+        if (targetSum < 0) { return null; }
+        if (targetSum == 0) { return new ArrayList<>(); }
+        List<Integer> shortest = null;
+        for (Integer value : numbers)  {
+            List<Integer> combination = dynamicBestSum(targetSum - value, numbers, memo);
+            if (combination != null) {
+                List<Integer> list = new ArrayList<>();
+                list.add(value);
+                list.addAll(combination);
+                if (shortest == null || shortest.size() > list.size()) {
+                    shortest = list;
+                }
+            }
+        }
+        memo.put(targetSum, shortest);
+        return shortest;
+    }
+
 }

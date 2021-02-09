@@ -5,7 +5,8 @@ public class App {
         // fibonacci();
         // gridTraveler();
         // canSum();
-        howSum();
+        // howSum();
+        bestSum();
     }
 
     private static void fibonacci() {
@@ -65,5 +66,20 @@ public class App {
         System.out.println(s.dynamicHowSum(7, Arrays.asList(2, 4)));
         System.out.println(s.dynamicHowSum(8, Arrays.asList(2,3,5)));
         System.out.println(s.dynamicHowSum(300, Arrays.asList(7,14)));
+    }
+
+    private static void bestSum() {
+        Sum s = new Sum();
+        System.out.println("Naive can sum:");
+        System.out.println(s.naiveBestSum(7, Arrays.asList(5,3,4,7)));
+        System.out.println(s.naiveBestSum(8, Arrays.asList(3,5)));
+        System.out.println(s.naiveBestSum(8, Arrays.asList(1,4,5)));
+        // System.out.println(s.naiveBestSum(100, Arrays.asList(1,2,5,25)));
+        
+        System.out.println("\nDynamic best sum:");
+        System.out.println(s.dynamicBestSum(7, Arrays.asList(5,3,4,7)));
+        System.out.println(s.dynamicBestSum(8, Arrays.asList(3,5)));
+        System.out.println(s.dynamicBestSum(8, Arrays.asList(1,4,5)));
+        System.out.println(s.dynamicBestSum(100, Arrays.asList(1,2,5,25)));
     }
 }
