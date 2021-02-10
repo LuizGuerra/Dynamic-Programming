@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,7 +14,6 @@ public class Construct {
     public boolean naiveCanConstruct(String target, List<String> wordBank) {
         if (target.isEmpty()) { return true; }
         for (String subWord : wordBank) {
-            if (target.length() < subWord.length()) { continue; }
             if (!target.startsWith(subWord)) { continue; }
             if (naiveCanConstruct(target.replaceFirst(subWord, ""), wordBank)) {
                 return true;
@@ -29,7 +30,6 @@ public class Construct {
         if (memo.containsKey(target)) { return memo.get(target); }
         if (target.isEmpty()) { return true; }
         for (String subWord : wordBank) {
-            if (target.length() < subWord.length()) { continue; }
             if (!target.startsWith(subWord)) { continue; }
             if (dynamicCanConstruct(target.replaceFirst(subWord, ""), wordBank, memo)) {
                 memo.put(target, true);
@@ -44,7 +44,6 @@ public class Construct {
         if (target.isEmpty()) { return 1; }
         int sum = 0;
         for (String prefix : wordBank) {
-            if (prefix.length() > target.length()) { continue; }
             if (!target.startsWith(prefix)) { continue; }
             sum += naiveCountConstruct(target.replaceFirst(prefix, ""), wordBank);
         }
@@ -60,12 +59,43 @@ public class Construct {
         if (target.isEmpty()) { return 1; }
         Integer sum = 0;
         for (String prefix : wordBank) {
-            if (prefix.length() > target.length()) { continue; }
             if (!target.startsWith(prefix)) { continue; }
             sum += dynamicCountConstruct(target.replaceFirst(prefix, ""), wordBank, memo);
         }
         memo.put(target, sum);
         return sum;
+    }
+
+    public List<List<String>> naiveAllConstruct(String target, List<String> wordBank) {
+        if (target.isEmpty()) { return Arrays.asList(new ArrayList<>()); }
+        List<List<String>> result = new ArrayList<>();
+        for (String prefix : wordBank) {
+            if (target.startsWith(prefix)) {
+                List<List<String>> sufixWays =  naiveAllConstruct(target.replaceFirst(prefix, ""), wordBank);
+                sufixWays.forEach( a -> a.add(0, prefix));
+                result.addAll(sufixWays);
+            }
+        }
+        return result;
+    }
+
+    public List<List<String>> dynamicAllConstruct(String target, List<String> wordBank) {
+        return dynamicAllConstruct(target, wordBank, new HashMap<>());
+    }
+
+    private List<List<String>> dynamicAllConstruct(String target, List<String> wordBank, HashMap<String, List<List<String>>> memo) {
+        if (memo.containsKey(target)) { return memo.get(target); }
+        if (target.isEmpty()) { return Arrays.asList(new ArrayList<>()); }
+        List<List<String>> result = new ArrayList<>();
+        for (String prefix : wordBank) {
+            if (target.startsWith(prefix)) {
+                List<List<String>> sufixWays =  dynamicAllConstruct(target.replaceFirst(prefix, ""), wordBank, memo);
+                sufixWays.forEach( a -> a.add(0, prefix));
+                result.addAll(sufixWays);
+            }
+        }
+        memo.put(target, result);
+        return result;
     }
     
 }

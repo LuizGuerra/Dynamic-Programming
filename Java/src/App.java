@@ -1,5 +1,12 @@
 import java.util.Arrays;
 public class App {
+    
+    static Fibonacci f = new Fibonacci();
+    static GridTraveler gt = new GridTraveler();
+    static Sum s = new Sum();
+    static Construct c = new Construct();
+
+
     public static void main (String args[]) {
         // fibonacci();
         // gridTraveler();
@@ -7,11 +14,11 @@ public class App {
         // howSum();
         // bestSum();
         // canConstruct();
-        countConstruct();
+        // countConstruct();
+        // allConstruct();
     }
 
     private static void fibonacci() {
-        Fibonacci f = new Fibonacci();
         for (int i = 1; i <= 10; i++) {
             System.out.println(i + "th fibonacci number is " +f.fib(i) );
         }
@@ -20,8 +27,6 @@ public class App {
     }
 
     private static void gridTraveler() {
-        GridTraveler gt = new GridTraveler();
-
         System.out.println("Naive traveling solution:");
         System.out.println(gt.naiveTravel(2, 2));
         System.out.println(gt.naiveTravel(2, 3));
@@ -36,7 +41,6 @@ public class App {
     }
 
     private static void canSum() {
-        Sum s = new Sum();
         System.out.println("Naive can sum:");
         System.out.println(s.naiveCanSum(7, Arrays.asList(2, 3)));
         System.out.println(s.naiveCanSum(7, Arrays.asList(5,3,4,7)));
@@ -85,34 +89,26 @@ public class App {
     }
 
     private static void canConstruct() {
-        Construct cc = new Construct();
         System.out.println("Naive construct:");
-        System.out.println(cc.naiveCanConstruct("skate", Arrays.asList("sk", "ate")));
-        System.out.println(cc.naiveCanConstruct("abcdef", Arrays.asList("ab","cd","abc","bc","de","ef")));
-        System.out.println(cc.naiveCanConstruct("abcdef", Arrays.asList("ab","cd","abc","bc","f")));
-        // System.out.println(cc.naiveConstruct(
-        //     "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
-        //      Arrays.asList("e","ee","eee","eeee","eeeeee","eeeeeee","eeeeeeee")));
+        System.out.println(c.naiveCanConstruct("skate", Arrays.asList("sk", "ate")));
+        System.out.println(c.naiveCanConstruct("abcdef", Arrays.asList("ab","cd","abc","bc","de","ef")));
+        System.out.println(c.naiveCanConstruct("abcdef", Arrays.asList("ab","cd","abc","bc","f")));
         
         System.out.println("\nDynamic construct:");
-        System.out.println(cc.dynamicCanConstruct("skate", Arrays.asList("sk", "ate")));
-        System.out.println(cc.dynamicCanConstruct("abcdef", Arrays.asList("ab","cd","abc","bc","de","ef")));
-        System.out.println(cc.dynamicCanConstruct("abcdef", Arrays.asList("ab","cd","abc","bc","f")));
-        System.out.println(cc.dynamicCanConstruct(
+        System.out.println(c.dynamicCanConstruct("skate", Arrays.asList("sk", "ate")));
+        System.out.println(c.dynamicCanConstruct("abcdef", Arrays.asList("ab","cd","abc","bc","de","ef")));
+        System.out.println(c.dynamicCanConstruct("abcdef", Arrays.asList("ab","cd","abc","bc","f")));
+        System.out.println(c.dynamicCanConstruct(
             "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
              Arrays.asList("e","ee","eee","eeee","eeeeee","eeeeeee","eeeeeeee")));
     }
 
     private static void countConstruct() {
-        Construct c = new Construct();
         System.out.println("Naive construct:");
         System.out.println(c.naiveCountConstruct("purple", Arrays.asList("purp","p","ur","le","purpl")));
         System.out.println(c.naiveCountConstruct("abcdef", Arrays.asList("ab","abc","cd","def","abcd")));
         System.out.println(c.naiveCountConstruct("skateboard", Arrays.asList("bo","rd","ate","t","ska","sk","boar")));
         System.out.println(c.naiveCountConstruct("enterapotentpot", Arrays.asList("a","p","ent","enter","ot","o","t")));
-        // System.out.println(c.naiveCountConstruct(
-        //     "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
-        //      Arrays.asList("e","ee","eee","eeee","eeeeee","eeeeeee","eeeeeeee")));dynamicCountConstruct
         
         System.out.println("\nDynamic construct:");
         System.out.println(c.dynamicCountConstruct("purple", Arrays.asList("purp","p","ur","le","purpl")));
@@ -122,5 +118,23 @@ public class App {
         System.out.println(c.dynamicCountConstruct(
             "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
              Arrays.asList("e","ee","eee","eeee","eeeeee","eeeeeee","eeeeeeee")));
+    }
+
+    private static void allConstruct() {
+        Construct c = new Construct();
+        System.out.println("Naive construct:");
+        System.out.println(c.naiveAllConstruct("purple", Arrays.asList("purp","p","ur","le","purpl"))); //2
+        System.out.println(c.naiveAllConstruct("abcdef", Arrays.asList("ab","abc","cd","def","abcd"))); //1
+        System.out.println(c.naiveAllConstruct("skateboard", Arrays.asList("bo","rd","ate","t","ska","sk","boar"))); //0
+        System.out.println(c.naiveAllConstruct("enterapotentpot", Arrays.asList("a","p","ent","enter","ot","o","t"))); //4
+        
+        System.out.println("\nDynamic construct:");
+        System.out.println(c.dynamicAllConstruct("purple", Arrays.asList("purp","p","ur","le","purpl"))); //2
+        System.out.println(c.dynamicAllConstruct("abcdef", Arrays.asList("ab","abc","cd","def","abcd"))); //1
+        System.out.println(c.dynamicAllConstruct("skateboard", Arrays.asList("bo","rd","ate","t","ska","sk","boar"))); //0
+        System.out.println(c.dynamicAllConstruct("enterapotentpot", Arrays.asList("a","p","ent","enter","ot","o","t"))); //4
+        System.out.println(c.dynamicAllConstruct(
+            "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
+             Arrays.asList("e","ee","eee","eeee","eeeeee"))); //0
     }
 }
