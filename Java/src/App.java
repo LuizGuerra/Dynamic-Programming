@@ -7,8 +7,8 @@ public class App {
     static Construct c = new Construct();
 
     public static void main (String args[]) {
-        fibonacci();
-        // gridTraveler();
+        // fibonacci();
+        gridTraveler();
         // canSum();
         // howSum();
         // bestSum();
@@ -39,17 +39,22 @@ public class App {
     }
 
     private static void gridTraveler() {
-        System.out.println("Naive traveling solution:");
-        System.out.println(gt.naiveTravel(2, 2));
-        System.out.println(gt.naiveTravel(2, 3));
-        System.out.println(gt.naiveTravel(3, 3));
-        // System.out.println(gt.naiveTravel(16, 16));
+        // System.out.println("Naive traveling solution:");
+        // System.out.println(gt.naiveTravel(2, 2));
+        // System.out.println(gt.naiveTravel(2, 3));
+        // System.out.println(gt.naiveTravel(3, 3));
         
-        System.out.println("\nDynamic traveling solution:");
-        System.out.println(gt.dinamicTravel(2, 2));
-        System.out.println(gt.dinamicTravel(2, 3));
-        System.out.println(gt.dinamicTravel(3, 3));
-        System.out.println(gt.dinamicTravel(18, 18));
+        System.out.println("\nDynamic traveling with memoization solution:");
+        System.out.println(gt.dinamicTravelMemo(2, 2));
+        System.out.println(gt.dinamicTravelMemo(2, 3));
+        System.out.println(gt.dinamicTravelMemo(3, 3));
+        System.out.println(gt.dinamicTravelMemo(18, 18));
+        
+        System.out.println("\nDynamic traveling with tabulation solution:");
+        System.out.println(gt.dynamicTravelTabular(2, 2));
+        System.out.println(gt.dynamicTravelTabular(2, 3));
+        System.out.println(gt.dynamicTravelTabular(3, 3));
+        System.out.println(gt.dynamicTravelTabular(18, 18));
     }
 
     private static void canSum() {
