@@ -6,9 +6,8 @@ public class App {
     static Sum s = new Sum();
     static Construct c = new Construct();
 
-
     public static void main (String args[]) {
-        // fibonacci();
+        fibonacci();
         // gridTraveler();
         // canSum();
         // howSum();
@@ -19,11 +18,24 @@ public class App {
     }
 
     private static void fibonacci() {
+        System.out.println("Naive fibonacci solution:");
         for (int i = 1; i <= 10; i++) {
-            System.out.println(i + "th fibonacci number is " +f.fib(i) );
+            System.out.println(i + "th fibonacci number is " + f.naiveFib(i) );
         }
-        System.out.println("50th fibonacci number is " +f.fib(50) );
-        System.out.println("100th th fibonacci number is " +f.fib(100) );
+
+        System.out.println("\nDynamic fibonacci memoization solution:");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i + "th fibonacci number is " +f.dynamicFibMemo(i) );
+        }
+        System.out.println("50th fibonacci number is " +f.dynamicFibMemo(50) );
+        System.out.println("100th th fibonacci number is " +f.dynamicFibMemo(100) );
+
+        System.out.println("\nDynamic fibonacci tabular solution:");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i + "th fibonacci number is " +f.dynamicFibTabular(i) );
+        }
+        System.out.println("50th fibonacci number is " +f.dynamicFibTabular(50) );
+        System.out.println("100th th fibonacci number is " +f.dynamicFibTabular(100) );
     }
 
     private static void gridTraveler() {
@@ -95,10 +107,10 @@ public class App {
         System.out.println(c.naiveCanConstruct("abcdef", Arrays.asList("ab","cd","abc","bc","f")));
         
         System.out.println("\nDynamic construct:");
-        System.out.println(c.dynamicCanConstruct("skate", Arrays.asList("sk", "ate")));
-        System.out.println(c.dynamicCanConstruct("abcdef", Arrays.asList("ab","cd","abc","bc","de","ef")));
-        System.out.println(c.dynamicCanConstruct("abcdef", Arrays.asList("ab","cd","abc","bc","f")));
-        System.out.println(c.dynamicCanConstruct(
+        System.out.println(c.dynamicCanConstructMemo("skate", Arrays.asList("sk", "ate")));
+        System.out.println(c.dynamicCanConstructMemo("abcdef", Arrays.asList("ab","cd","abc","bc","de","ef")));
+        System.out.println(c.dynamicCanConstructMemo("abcdef", Arrays.asList("ab","cd","abc","bc","f")));
+        System.out.println(c.dynamicCanConstructMemo(
             "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
              Arrays.asList("e","ee","eee","eeee","eeeeee","eeeeeee","eeeeeeee")));
     }
@@ -111,11 +123,11 @@ public class App {
         System.out.println(c.naiveCountConstruct("enterapotentpot", Arrays.asList("a","p","ent","enter","ot","o","t")));
         
         System.out.println("\nDynamic construct:");
-        System.out.println(c.dynamicCountConstruct("purple", Arrays.asList("purp","p","ur","le","purpl")));
-        System.out.println(c.dynamicCountConstruct("abcdef", Arrays.asList("ab","abc","cd","def","abcd")));
-        System.out.println(c.dynamicCountConstruct("skateboard", Arrays.asList("bo","rd","ate","t","ska","sk","boar")));
-        System.out.println(c.dynamicCountConstruct("enterapotentpot", Arrays.asList("a","p","ent","enter","ot","o","t")));
-        System.out.println(c.dynamicCountConstruct(
+        System.out.println(c.dynamicCountConstructMemo("purple", Arrays.asList("purp","p","ur","le","purpl")));
+        System.out.println(c.dynamicCountConstructMemo("abcdef", Arrays.asList("ab","abc","cd","def","abcd")));
+        System.out.println(c.dynamicCountConstructMemo("skateboard", Arrays.asList("bo","rd","ate","t","ska","sk","boar")));
+        System.out.println(c.dynamicCountConstructMemo("enterapotentpot", Arrays.asList("a","p","ent","enter","ot","o","t")));
+        System.out.println(c.dynamicCountConstructMemo(
             "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
              Arrays.asList("e","ee","eee","eeee","eeeeee","eeeeeee","eeeeeeee")));
     }
@@ -129,11 +141,11 @@ public class App {
         System.out.println(c.naiveAllConstruct("enterapotentpot", Arrays.asList("a","p","ent","enter","ot","o","t"))); //4
         
         System.out.println("\nDynamic construct:");
-        System.out.println(c.dynamicAllConstruct("purple", Arrays.asList("purp","p","ur","le","purpl"))); //2
-        System.out.println(c.dynamicAllConstruct("abcdef", Arrays.asList("ab","abc","cd","def","abcd"))); //1
-        System.out.println(c.dynamicAllConstruct("skateboard", Arrays.asList("bo","rd","ate","t","ska","sk","boar"))); //0
-        System.out.println(c.dynamicAllConstruct("enterapotentpot", Arrays.asList("a","p","ent","enter","ot","o","t"))); //4
-        System.out.println(c.dynamicAllConstruct(
+        System.out.println(c.dynamicAllConstructMemo("purple", Arrays.asList("purp","p","ur","le","purpl"))); //2
+        System.out.println(c.dynamicAllConstructMemo("abcdef", Arrays.asList("ab","abc","cd","def","abcd"))); //1
+        System.out.println(c.dynamicAllConstructMemo("skateboard", Arrays.asList("bo","rd","ate","t","ska","sk","boar"))); //0
+        System.out.println(c.dynamicAllConstructMemo("enterapotentpot", Arrays.asList("a","p","ent","enter","ot","o","t"))); //4
+        System.out.println(c.dynamicAllConstructMemo(
             "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
              Arrays.asList("e","ee","eee","eeee","eeeeee"))); //0
     }

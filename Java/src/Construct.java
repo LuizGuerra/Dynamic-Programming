@@ -22,16 +22,16 @@ public class Construct {
         return false;
     }
     
-    public boolean dynamicCanConstruct(String target, List<String> wordBank) {
-        return dynamicCanConstruct(target, wordBank, new HashMap<>());
+    public boolean dynamicCanConstructMemo(String target, List<String> wordBank) {
+        return dynamicCanConstructMemo(target, wordBank, new HashMap<>());
     }
 
-    private boolean dynamicCanConstruct(String target, List<String> wordBank, HashMap<String, Boolean> memo) {
+    private boolean dynamicCanConstructMemo(String target, List<String> wordBank, HashMap<String, Boolean> memo) {
         if (memo.containsKey(target)) { return memo.get(target); }
         if (target.isEmpty()) { return true; }
         for (String subWord : wordBank) {
             if (!target.startsWith(subWord)) { continue; }
-            if (dynamicCanConstruct(target.replaceFirst(subWord, ""), wordBank, memo)) {
+            if (dynamicCanConstructMemo(target.replaceFirst(subWord, ""), wordBank, memo)) {
                 memo.put(target, true);
                 return true;
             }
@@ -50,17 +50,17 @@ public class Construct {
         return sum;
     }
 
-    public Integer dynamicCountConstruct(String target, List<String> wordBank) {
-        return dynamicCountConstruct(target, wordBank, new HashMap<>());
+    public Integer dynamicCountConstructMemo(String target, List<String> wordBank) {
+        return dynamicCountConstructMemo(target, wordBank, new HashMap<>());
     }
 
-    private Integer dynamicCountConstruct(String target, List<String> wordBank, HashMap<String, Integer> memo) {
+    private Integer dynamicCountConstructMemo(String target, List<String> wordBank, HashMap<String, Integer> memo) {
         if (memo.containsKey(target)) { return memo.get(target); }
         if (target.isEmpty()) { return 1; }
         Integer sum = 0;
         for (String prefix : wordBank) {
             if (!target.startsWith(prefix)) { continue; }
-            sum += dynamicCountConstruct(target.replaceFirst(prefix, ""), wordBank, memo);
+            sum += dynamicCountConstructMemo(target.replaceFirst(prefix, ""), wordBank, memo);
         }
         memo.put(target, sum);
         return sum;
@@ -79,17 +79,17 @@ public class Construct {
         return result;
     }
 
-    public List<List<String>> dynamicAllConstruct(String target, List<String> wordBank) {
-        return dynamicAllConstruct(target, wordBank, new HashMap<>());
+    public List<List<String>> dynamicAllConstructMemo(String target, List<String> wordBank) {
+        return dynamicAllConstructMemo(target, wordBank, new HashMap<>());
     }
 
-    private List<List<String>> dynamicAllConstruct(String target, List<String> wordBank, HashMap<String, List<List<String>>> memo) {
+    private List<List<String>> dynamicAllConstructMemo(String target, List<String> wordBank, HashMap<String, List<List<String>>> memo) {
         if (memo.containsKey(target)) { return memo.get(target); }
         if (target.isEmpty()) { return Arrays.asList(new ArrayList<>()); }
         List<List<String>> result = new ArrayList<>();
         for (String prefix : wordBank) {
             if (target.startsWith(prefix)) {
-                List<List<String>> sufixWays =  dynamicAllConstruct(target.replaceFirst(prefix, ""), wordBank, memo);
+                List<List<String>> sufixWays =  dynamicAllConstructMemo(target.replaceFirst(prefix, ""), wordBank, memo);
                 sufixWays.forEach( a -> a.add(0, prefix));
                 result.addAll(sufixWays);
             }
