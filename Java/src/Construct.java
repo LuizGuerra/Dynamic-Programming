@@ -8,9 +8,16 @@ import java.util.List;
 */
 
 public class Construct {
-
-    public Construct() { }
     
+    /**
+     * ===============================================================
+     *                          CAN CONSTRUCT                         
+     * ===============================================================
+     */
+
+    /**
+     * CAN CONSTRUCT NAIVE IMPLEMENTATION
+     */
     public boolean naiveCanConstruct(String target, List<String> wordBank) {
         if (target.isEmpty()) { return true; }
         for (String subWord : wordBank) {
@@ -22,10 +29,13 @@ public class Construct {
         return false;
     }
     
+    /**
+     * CAN CONSTRUCT DYNAMIC IMPLEMENTATION
+     * USING MEMOIZATION
+     */
     public boolean dynamicCanConstructMemo(String target, List<String> wordBank) {
         return dynamicCanConstructMemo(target, wordBank, new HashMap<>());
     }
-
     private boolean dynamicCanConstructMemo(String target, List<String> wordBank, HashMap<String, Boolean> memo) {
         if (memo.containsKey(target)) { return memo.get(target); }
         if (target.isEmpty()) { return true; }
@@ -40,6 +50,21 @@ public class Construct {
         return false;
     }
     
+    /**
+     * CAN CONSTRUCT DYNAMIC IMPLEMENTATION
+     * USING TABULATION
+     */
+    public boolean dynamicCanConstructTabular(String target, List<String> wordBank) {
+        
+        return false;
+    }
+    
+    /**
+     * ===============================================================
+     *                          COUNT CONSTRUCT                         
+     * ===============================================================
+     */
+
     public int naiveCountConstruct(String target, List<String> wordBank) {
         if (target.isEmpty()) { return 1; }
         int sum = 0;
@@ -66,6 +91,11 @@ public class Construct {
         return sum;
     }
 
+    /**
+     * ===============================================================
+     *                          ALL CONSTRUCT                         
+     * ===============================================================
+     */
     public List<List<String>> naiveAllConstruct(String target, List<String> wordBank) {
         if (target.isEmpty()) { return Arrays.asList(new ArrayList<>()); }
         List<List<String>> result = new ArrayList<>();
