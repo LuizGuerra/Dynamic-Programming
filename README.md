@@ -39,11 +39,11 @@ Similar to the Sum problems, here we have a target word to achieve and a list of
 2. Count Construct: how many different ways a word can be created given a list of strings
 3. All Constructs: which different ways a word can be created givena list of strings
 
-## Implementation
+## Implementations
 
 Problem | Java | Swift | Haskell
 --- | --- | --- | ---
-Fibonacci | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Fibonacci.java) | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Swift/Fibonacci.java) | -
+Fibonacci | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Fibonacci.java) | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Swift/Fibonacci.swift) | -
 Grid  | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/GridTraveler.java) | - | -
 Sum problems | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Sum.java) | - | -
 Construct problems | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Construct.java) | - | -
