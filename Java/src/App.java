@@ -8,13 +8,13 @@ public class App {
 
     public static void main (String args[]) {
         // fibonacci();
-        // gridTraveler();
+        gridTraveler();
         // canSum();
         // howSum();
         // bestSum();
         // canConstruct();
         // countConstruct();
-        allConstruct();
+        // allConstruct();
     }
 
     private static void fibonacci() {
