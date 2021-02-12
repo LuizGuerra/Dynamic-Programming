@@ -8,10 +8,10 @@ public class App {
 
     public static void main (String args[]) {
         // fibonacci();
-        gridTraveler();
-        // canSum();
-        // howSum();
-        // bestSum();
+        // gridTraveler();
+        canSum();
+        howSum();
+        bestSum();
         // canConstruct();
         // countConstruct();
         // allConstruct();
@@ -59,10 +59,10 @@ public class App {
 
     private static void canSum() {
         System.out.println("Naive can sum:");
-        // System.out.println(s.naiveCanSum(7, Arrays.asList(2, 3)));
-        // System.out.println(s.naiveCanSum(7, Arrays.asList(5,3,4,7)));
-        // System.out.println(s.naiveCanSum(7, Arrays.asList(2,4)));
-        // System.out.println(s.naiveCanSum(8, Arrays.asList(2,3,5)));
+        System.out.println(s.naiveCanSum(7, Arrays.asList(2, 3)));
+        System.out.println(s.naiveCanSum(7, Arrays.asList(5,3,4,7)));
+        System.out.println(s.naiveCanSum(7, Arrays.asList(2,4)));
+        System.out.println(s.naiveCanSum(8, Arrays.asList(2,3,5)));
         // System.out.println(s.naiveCanSum(300, Arrays.asList(7,14)));
         
         System.out.println("\nDynamic can sum with memoization:");
