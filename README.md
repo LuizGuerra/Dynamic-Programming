@@ -2,8 +2,20 @@
 
 This is the dynamic implementations of commong software intensive problems.
 
-Solutions:
-1. [Fibonacci](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Fibonacci.java)
-2. [Grid Traveler](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/GridTraveler.java)
-3. [Sum problems](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Sum.java)
-3. [Construct problems](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Construct.java)
+## Fibonacci
+
+## Grid Traveler
+
+## Sum Problems
+
+## Cosntruct Problems
+
+
+Problem | Java | Swift | Haskell
+--- | --- | --- | ---
+Fibonacci | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Fibonacci.java) | - | -
+Grid  | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/GridTraveler.java) | - | -
+Sum problems | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Sum.java) | - | -
+Construct problems | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Construct.java) | - | -
+
+
