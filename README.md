@@ -46,4 +46,4 @@ Problem | Java | Swift | Haskell
 Fibonacci | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Fibonacci.java) | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Swift/Fibonacci.swift) | -
 Grid Traveler  | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/GridTraveler.java) | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Swift/GridTraveler.swift) | -
 Sum problems | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Sum.java) | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Swift/Sum.swift) | -
-Construct problems | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Construct.java) | - | -
+Construct problems | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Java/src/Construct.java) | [Link](https://github.com/LuizGuerra/Dynamic-Programming/blob/main/Swift/Construct.swift) | -
