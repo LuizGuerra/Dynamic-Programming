@@ -9,12 +9,12 @@ public class App {
     public static void main (String args[]) {
         // fibonacci();
         // gridTraveler();
-        canSum();
-        howSum();
-        bestSum();
-        // canConstruct();
-        // countConstruct();
-        // allConstruct();
+        // canSum();
+        // howSum();
+        // bestSum();
+        canConstruct();
+        countConstruct();
+        allConstruct();
     }
 
     private static void fibonacci() {
