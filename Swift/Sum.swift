@@ -46,7 +46,21 @@ func dynamicMemoCanSum(targetSum: Int, numbers: [Int]) -> Bool {
     return canSum(targetSum, numbers, &memo)
 }
 
- 
+ func dynamicTabularCanSum(targetSum: Int, numbers: [Int]) -> Bool {
+    var table: [Bool] = []
+    for _ in 0 ... targetSum {
+        table.append(false)
+    }
+    table[0] = true
+    for i in 0 ..< targetSum {
+        for number in numbers {
+            if table[i] && i+number <= targetSum {
+                table[i+number] = true
+            }
+        }
+    }
+    return table[targetSum]
+ }
 
 /**
 * ===============================================================
