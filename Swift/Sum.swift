@@ -108,7 +108,7 @@ func dynamicMemoHowSum(targetSum: Int, numbers: [Int]) -> [Int]? {
     return howSum(targetSum, numbers, &memo)
 }
 
-func dynamicTabularHowSum (targetSum: Int, numbers: [Int]) -> [Int]? {
+func dynamicTabularHowSum(targetSum: Int, numbers: [Int]) -> [Int]? {
     var tabulation: [[Int]?] = [[]]
     for _ in 0 ..< targetSum {
         tabulation.append(nil)
@@ -133,7 +133,72 @@ func dynamicTabularHowSum (targetSum: Int, numbers: [Int]) -> [Int]? {
 
 /**
 * ===============================================================
-*                          HOW SUM  
+*                          BEST SUM  
 *                    optimization problem                    
 * ===============================================================
 */
+
+func naiveBestSum(targetSum: Int, numbers: [Int]) -> [Int]? {
+    if targetSum < 0 {
+        return nil
+    }
+    if targetSum == 0 {
+        return []
+    }
+    var shortest: [Int]? = nil
+    for number in numbers {
+        guard var combination = naiveBestSum(targetSum: targetSum - number, numbers: numbers) else { continue }
+        combination.append(number)
+        if shortest == nil || shortest!.count > combination.count {
+            shortest = combination
+        }
+    }
+    return shortest
+}
+
+func dynamicMemoBestSum(targetSum: Int, numbers: [Int]) -> [Int]? {
+    var memo: [Int:[Int]?] = [:]
+    func bestSum(_ targetSum: Int, _ numbers: [Int], _ memo: inout [Int:[Int]?]) -> [Int]? {
+        if let value = memo[targetSum] {
+            return value
+        }
+        if targetSum < 0 {
+            return nil
+        }
+        if targetSum == 0 {
+            return []
+        }
+        var shortest: [Int]? = nil
+        for number in numbers {
+            guard var combination = bestSum(targetSum - number, numbers, &memo) else { continue }
+            combination.append(number)
+            if shortest == nil || shortest!.count > combination.count {
+                shortest = combination
+            }
+        }
+        memo[targetSum] = shortest
+        return shortest
+    }
+    return bestSum(targetSum, numbers, &memo)
+}
+
+func dynamicTabularBestSum(targetSum: Int, numbers: [Int]) -> [Int]? {
+    var table: [[Int]?] = [[]]
+    for _ in 0 ..< targetSum {
+        table.append(nil)
+    }
+    for i in 0 ... targetSum {
+        for number in numbers {
+            let index = i + number
+            guard let array = table[i] else { continue }
+            if index > targetSum {
+                continue
+            }
+            let list = [number] + array
+            if table[index] == nil || table[index]!.count > list.count {
+                table[index] = list
+            }
+        }
+    }
+    return table[targetSum]
+}
